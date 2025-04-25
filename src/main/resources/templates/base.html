@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+
+    <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">Base</title>
+    <meta name="description" content=""/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <style th:inline="css">
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        .page {
+            width: 500px;
+            margin: 0 auto;
+            /*border: 1px solid #dddddd;*/
+            padding: 10px;
+        }
+        .page_header {
+            width: 100%;
+        }
+        .page_header img {
+            /*margin: 0 auto;*/
+            display: block;
+        }
+        .page_footer {
+            font-size: 0.8rem;
+            font-weight: bold;
+            font-style: italic;
+        }
+        a.btn {
+            background-color: #fff;
+            border: 2px solid #ddd;
+            padding: 10px;
+            display: inline-block;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="page_header">
+        <img class="logoImg" src="../images/logo.png" th:src="|cid:${imageResourceName}|">
+        <h2 layout:fragment="page_header"></h2>
+    </div>
+    <div class="content">
+        <div layout:fragment="page_content"></div>
+    </div>
+    <div class="page_footer">
+        © <span th:text="${#temporals.format(#temporals.createNow(), 'yyyy')}">2021</span>
+        <span>RMS SYSTEM</span>
+    </div>
+</div>
+</body>
+
+</html>

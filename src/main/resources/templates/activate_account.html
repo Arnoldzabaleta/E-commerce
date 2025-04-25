@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Activation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-container {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            max-width: 180px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: #FFB63F;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .activation-code {
+            font-size: 36px;
+            font-weight: bold;
+            color: #69D482;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .activation-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .activation-link a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #69D482;
+            color: white;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: bold;
+            border: 3px solid #FFB63F;
+        }
+
+        .footer {
+            font-size: 0.8rem;
+            color: #999;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="logo-container">
+        <img class="logo" th:src="@{cid:logo.png}" alt="Company Logo">
+    </div>
+
+    <h1>Activation du Compte</h1>
+    <p class="greeting" th:text="'Bonjour ' + ${username} + ','"></p>
+    <p>Merci pour votre inscription ! Veuillez utiliser le code d'activation suivant pour activer votre compte :</p>
+    <div class="activation-code"><span th:text="${token}"></span></div>
+    <div class="activation-link">
+        <a th:href="${confirmationUrl}" target="_blank">Activez votre compte</a>
+    </div>
+
+    <p class="footer">Si vous avez des questions, n'hésitez pas à nous contacter à mailto:wellbe421@gmail.com</p>
+</div>
+</body>
+</html>

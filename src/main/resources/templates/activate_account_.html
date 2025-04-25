@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{html/base}"
+>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title th:text="#{connectionNotification(${email})}">Account Activation</title>
+</head>
+<body>
+<h2 layout:fragment="page_header" id="page_header" th:text="#{greeting(${username})}"></h2>
+<div layout:fragment="page_content" id="page_content">
+<!--    <p th:text="#{verifyAccountMessage(${beforeDate})}">message content</p>-->
+<!--    <a class="btn" th:href="${urlToVerifyEmail}" th:text="#{btnVerifyEmail}">Reset my password</a>-->
+    <p>Thank you for signing up! Please use the following activation code to activate your account:</p>
+    <p style="font-weight: bold; text-align: center; font-size: 24px;" th:text="${token}">message content</p>
+
+    <a class="btn" th:href="${confirmationUrl}" th:text="#{btnVerifyEmail}"
+       style="background-color: lightgreen; color: black; border: 3px solid limegreen; border-radius: 20px; padding: 10px 20px; display: inline-block; text-decoration: none;">
+        Activate my account
+    </a>
+    <!--<p><span th:text="#{activationCodeMessage}">activation code</span>  :
+    <span th:text="${activationCode}">activation code</span></p>-->
+
+    <p th:text="#{warningVerifyAccountMessage}">If you didn't make creation account then you can safely ignore this email.</p>
+</div>
+</body>
+</html>

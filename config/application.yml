@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active: ${PROFILE:dev}
+
+  application:
+    name: Ecommerce
+
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+
+server:
+  servlet:
+    context-path: /usersApi
+
